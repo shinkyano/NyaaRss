@@ -9,12 +9,22 @@
 /* Begin PBXBuildFile section */
 		6FCEA8A12596331C00641A87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCEA8A02596331C00641A87 /* AppDelegate.swift */; };
 		6FCEA8A32596331C00641A87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCEA8A22596331C00641A87 /* SceneDelegate.swift */; };
-		6FCEA8A52596331C00641A87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCEA8A42596331C00641A87 /* ViewController.swift */; };
 		6FCEA8A82596331C00641A87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FCEA8A62596331C00641A87 /* Main.storyboard */; };
 		6FCEA8AA2596331D00641A87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FCEA8A92596331D00641A87 /* Assets.xcassets */; };
 		6FCEA8AD2596331D00641A87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FCEA8AB2596331D00641A87 /* LaunchScreen.storyboard */; };
 		6FCEA8B82596331D00641A87 /* NyaaRSSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCEA8B72596331D00641A87 /* NyaaRSSTests.swift */; };
 		6FCEA8C32596331D00641A87 /* NyaaRSSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCEA8C22596331D00641A87 /* NyaaRSSUITests.swift */; };
+		6FCEA8D42596345800641A87 /* nyaa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6FCEA8D32596345800641A87 /* nyaa.xml */; };
+		6FCEA8DC259636BB00641A87 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCEA8DB259636BB00641A87 /* TableViewController.swift */; };
+		6FCEA8E22597881F00641A87 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCEA8E02597881F00641A87 /* CustomCell.swift */; };
+		6FCEA8E32597881F00641A87 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FCEA8E12597881F00641A87 /* CustomCell.xib */; };
+		6FCEA8F62597A86200641A87 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCEA8F52597A86200641A87 /* DetailViewController.swift */; };
+		6FCEA8FB2598BB8000641A87 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCEA8FA2598BB8000641A87 /* Item.swift */; };
+		6FCEA9002598DE8C00641A87 /* SynologyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCEA8FF2598DE8C00641A87 /* SynologyManager.swift */; };
+		6FCEA9052598E1BF00641A87 /* SynologyServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCEA9042598E1BF00641A87 /* SynologyServices.swift */; };
+		6FCEA91225993ACA00641A87 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCEA91125993ACA00641A87 /* K.swift */; };
+		6FCEA921259E86EC00641A87 /* SynologyLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCEA920259E86EC00641A87 /* SynologyLogin.swift */; };
+		6FCEA92D259E91A400641A87 /* SynologyCreateDownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCEA92C259E91A400641A87 /* SynologyCreateDownloadTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +48,6 @@
 		6FCEA89D2596331C00641A87 /* NyaaRSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NyaaRSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FCEA8A02596331C00641A87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FCEA8A22596331C00641A87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6FCEA8A42596331C00641A87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6FCEA8A72596331C00641A87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6FCEA8A92596331D00641A87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6FCEA8AC2596331D00641A87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +58,17 @@
 		6FCEA8BE2596331D00641A87 /* NyaaRSSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NyaaRSSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FCEA8C22596331D00641A87 /* NyaaRSSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NyaaRSSUITests.swift; sourceTree = "<group>"; };
 		6FCEA8C42596331D00641A87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FCEA8D32596345800641A87 /* nyaa.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = nyaa.xml; sourceTree = "<group>"; };
+		6FCEA8DB259636BB00641A87 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		6FCEA8E02597881F00641A87 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		6FCEA8E12597881F00641A87 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		6FCEA8F52597A86200641A87 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		6FCEA8FA2598BB8000641A87 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		6FCEA8FF2598DE8C00641A87 /* SynologyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynologyManager.swift; sourceTree = "<group>"; };
+		6FCEA9042598E1BF00641A87 /* SynologyServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynologyServices.swift; sourceTree = "<group>"; };
+		6FCEA91125993ACA00641A87 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		6FCEA920259E86EC00641A87 /* SynologyLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynologyLogin.swift; sourceTree = "<group>"; };
+		6FCEA92C259E91A400641A87 /* SynologyCreateDownloadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynologyCreateDownloadTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +119,20 @@
 		6FCEA89F2596331C00641A87 /* NyaaRSS */ = {
 			isa = PBXGroup;
 			children = (
+				6FCEA928259E86FC00641A87 /* Controllers */,
+				6FCEA8D32596345800641A87 /* nyaa.xml */,
+				6FCEA8E02597881F00641A87 /* CustomCell.swift */,
+				6FCEA8E12597881F00641A87 /* CustomCell.xib */,
 				6FCEA8A02596331C00641A87 /* AppDelegate.swift */,
 				6FCEA8A22596331C00641A87 /* SceneDelegate.swift */,
-				6FCEA8A42596331C00641A87 /* ViewController.swift */,
 				6FCEA8A62596331C00641A87 /* Main.storyboard */,
 				6FCEA8A92596331D00641A87 /* Assets.xcassets */,
 				6FCEA8AB2596331D00641A87 /* LaunchScreen.storyboard */,
 				6FCEA8AE2596331D00641A87 /* Info.plist */,
+				6FCEA8FA2598BB8000641A87 /* Item.swift */,
+				6FCEA8FF2598DE8C00641A87 /* SynologyManager.swift */,
+				6FCEA91F259E86BF00641A87 /* Synology */,
+				6FCEA91125993ACA00641A87 /* K.swift */,
 			);
 			path = NyaaRSS;
 			sourceTree = "<group>";
@@ -126,6 +153,25 @@
 				6FCEA8C42596331D00641A87 /* Info.plist */,
 			);
 			path = NyaaRSSUITests;
+			sourceTree = "<group>";
+		};
+		6FCEA91F259E86BF00641A87 /* Synology */ = {
+			isa = PBXGroup;
+			children = (
+				6FCEA9042598E1BF00641A87 /* SynologyServices.swift */,
+				6FCEA920259E86EC00641A87 /* SynologyLogin.swift */,
+				6FCEA92C259E91A400641A87 /* SynologyCreateDownloadTask.swift */,
+			);
+			path = Synology;
+			sourceTree = "<group>";
+		};
+		6FCEA928259E86FC00641A87 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6FCEA8F52597A86200641A87 /* DetailViewController.swift */,
+				6FCEA8DB259636BB00641A87 /* TableViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +277,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FCEA8E32597881F00641A87 /* CustomCell.xib in Resources */,
+				6FCEA8D42596345800641A87 /* nyaa.xml in Resources */,
 				6FCEA8AD2596331D00641A87 /* LaunchScreen.storyboard in Resources */,
 				6FCEA8AA2596331D00641A87 /* Assets.xcassets in Resources */,
 				6FCEA8A82596331C00641A87 /* Main.storyboard in Resources */,
@@ -258,9 +306,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FCEA8A52596331C00641A87 /* ViewController.swift in Sources */,
+				6FCEA91225993ACA00641A87 /* K.swift in Sources */,
 				6FCEA8A12596331C00641A87 /* AppDelegate.swift in Sources */,
+				6FCEA9052598E1BF00641A87 /* SynologyServices.swift in Sources */,
+				6FCEA8DC259636BB00641A87 /* TableViewController.swift in Sources */,
+				6FCEA8F62597A86200641A87 /* DetailViewController.swift in Sources */,
+				6FCEA8E22597881F00641A87 /* CustomCell.swift in Sources */,
+				6FCEA8FB2598BB8000641A87 /* Item.swift in Sources */,
+				6FCEA921259E86EC00641A87 /* SynologyLogin.swift in Sources */,
+				6FCEA9002598DE8C00641A87 /* SynologyManager.swift in Sources */,
 				6FCEA8A32596331C00641A87 /* SceneDelegate.swift in Sources */,
+				6FCEA92D259E91A400641A87 /* SynologyCreateDownloadTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +493,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SPH3537JS4;
 				INFOPLIST_FILE = NyaaRSS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,7 +513,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SPH3537JS4;
 				INFOPLIST_FILE = NyaaRSS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
