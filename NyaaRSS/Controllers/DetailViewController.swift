@@ -29,7 +29,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func downloadPressed(_ sender: UIButton) {
-        synologyManager.download(torrent: torrentLinkValue)
+        synologyManager.download(torrent: torrentLinkValue.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))
     }
     
 }

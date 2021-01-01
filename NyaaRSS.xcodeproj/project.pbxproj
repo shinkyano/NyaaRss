@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F82D8F0259F956500CB3F1F /* SynologyLogout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F82D8EF259F956500CB3F1F /* SynologyLogout.swift */; };
 		6FCEA8A12596331C00641A87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCEA8A02596331C00641A87 /* AppDelegate.swift */; };
 		6FCEA8A32596331C00641A87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCEA8A22596331C00641A87 /* SceneDelegate.swift */; };
 		6FCEA8A82596331C00641A87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FCEA8A62596331C00641A87 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6F82D8EF259F956500CB3F1F /* SynologyLogout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynologyLogout.swift; sourceTree = "<group>"; };
 		6FCEA89D2596331C00641A87 /* NyaaRSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NyaaRSS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FCEA8A02596331C00641A87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FCEA8A22596331C00641A87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				6FCEA9042598E1BF00641A87 /* SynologyServices.swift */,
 				6FCEA920259E86EC00641A87 /* SynologyLogin.swift */,
 				6FCEA92C259E91A400641A87 /* SynologyCreateDownloadTask.swift */,
+				6F82D8EF259F956500CB3F1F /* SynologyLogout.swift */,
 			);
 			path = Synology;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FCEA91225993ACA00641A87 /* K.swift in Sources */,
+				6F82D8F0259F956500CB3F1F /* SynologyLogout.swift in Sources */,
 				6FCEA8A12596331C00641A87 /* AppDelegate.swift in Sources */,
 				6FCEA9052598E1BF00641A87 /* SynologyServices.swift in Sources */,
 				6FCEA8DC259636BB00641A87 /* TableViewController.swift in Sources */,

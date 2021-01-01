@@ -14,62 +14,21 @@ class SynologyManager  {
     let synologyLogin = "shinkyano"
     let synologyPassword = "Kyano62378"
     
-    var synologyServices: SynologyServices? = nil
-    
-    var toto: SynologyServices?
+    var synologyServices: SynologyServices?
     var login: SynologyLogin?
+    var logoutVariable: SynologyLogout?
     var downloadTask: SynologyDownloadTask?
     
+    var authVersion: String = ""
+    var downloadStationVersion: String = ""
+    
     func download(torrent: String) {
-        getSynologyServices()
-        if let x = toto {
-            print(x.success)
-            let authVersion: String = String(x.data.synoAPIAuth.maxVersion)
-            let downloadStationVersion: String = String(x.data.synoDownloadStationTask.maxVersion)
-            
-            login(authVersion)
-            
-            if let y = login {
-                print(y.data.sid)
-                
-                let torrent =  torrent.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                createTask(torrent: torrent, downloadStationVersion: downloadStationVersion)
-                
-                if let z = downloadTask {
-                    print(torrent)
-                } else {
-                    print("Erreur lors de la création de la tache")
-                }
-                
-            }
-            
-        }
-    }
-    
-    // MARK: - Services list
-    
-    func getSynologyServices(){
-        let synologyURL = "http://\(synologyIP):\(synologyPort)/webapi/query.cgi?api=SYNO.API.Info&version=1&method=query&query=SYNO.API.Auth,SYNO.DownloadStation.Task"
-        performRequest(with: synologyURL, step: "getInfos")
-    }
-    
-    func login(_ authVersion: String){
         
-        let synologyURL = "http://\(synologyIP):\(synologyPort)/webapi/auth.cgi?api=SYNO.API.Auth&version=\(authVersion)&method=login&account=\(synologyLogin)&passwd=\(synologyPassword)&session=DownloadStation&format=cookie"
-        
-        performRequest(with: synologyURL, step: "login")
-        
-    }
-    
-    func createTask(torrent: String, downloadStationVersion: String){
-        let synologyURL = "http://192.168.1.22:5000/webapi/DownloadStation/task.cgi?api=SYNO.DownloadStation.Task&version=\(downloadStationVersion)&method=create&uri=\(torrent)"
-        performRequest(with: synologyURL, step: "createTask")
-    }
-    
-    func performRequest(with urlString: String, step: String) {
+        print("toto")
+        let synologyURL = "http://\(self.synologyIP):\(self.synologyPort)/webapi/query.cgi?api=SYNO.API.Info&version=1&method=query&query=SYNO.API.Auth,SYNO.DownloadStation.Task"
         
         //1.Create a URL
-        if let url = URL(string: urlString){
+        if let url = URL(string: synologyURL){
             
             //2.Create a URL session
             let session = URLSession(configuration: URLSessionConfiguration.default)
@@ -77,12 +36,18 @@ class SynologyManager  {
             //3.Give the session a task
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil{
-                    //                    self.delegate?.didFailWithError(error: error!)
                     return
                 }
                 
                 if let safeData = data {
-                    self.parseJSON(safeData, step: step)
+                    do {
+                        let decoder = JSONDecoder()
+                        let decodedData = try decoder.decode(SynologyServices.self, from: safeData)
+                        self.synologyServices = decodedData
+                        login()
+                    } catch {
+                        print(error)
+                    }
                 }
                 
             }
@@ -90,32 +55,146 @@ class SynologyManager  {
             //4.Start the task
             task.resume()
         }
-    }
-    
-    func parseJSON(_ synologyData: Data, step: String) {
-        let decoder = JSONDecoder()
         
-        do {
-            
-            switch step {
-            case "getInfos":
-                let decodedData = try decoder.decode(SynologyServices.self, from: synologyData)
-                toto = decodedData
-            case "login":
-                let decodedData = try decoder.decode(SynologyLogin.self, from: synologyData)
-                login = decodedData
-            case "createTask":
-                let decodedData = try decoder.decode(SynologyDownloadTask.self, from: synologyData)
-                downloadTask = decodedData
-            default:
-                break
+        func login() {
+            print("tata")
+            if let x = self.synologyServices {
+                print(x.success)
+                authVersion = String(x.data.synoAPIAuth.maxVersion)
+                downloadStationVersion = String(x.data.synoDownloadStationTask.maxVersion)
+                
+                let synologyURL = "http://\(synologyIP):\(synologyPort)/webapi/auth.cgi?api=SYNO.API.Auth&version=\(authVersion)&method=login&account=\(synologyLogin)&passwd=\(synologyPassword)&session=DownloadStation&format=cookie"
+                
+                //1.Create a URL
+                if let url = URL(string: synologyURL){
+                    
+                    //2.Create a URL session
+                    let session = URLSession(configuration: URLSessionConfiguration.default)
+                    
+                    //3.Give the session a task
+                    let task = session.dataTask(with: url) { (data, response, error) in
+                        if error != nil{
+                            return
+                        }
+                        
+                        if let safeData = data {
+                            do {
+                                let decoder = JSONDecoder()
+                                let decodedData = try decoder.decode(SynologyLogin.self, from: safeData)
+                                self.login = decodedData
+                                
+                                if let y = self.login {
+                                    print(y.data.sid)
+                                    createTask(self.downloadStationVersion)
+                                } else {
+                                    print("Could not log in")
+                                }
+                                
+                            } catch {
+                                print(error)
+                            }
+                        }
+                        
+                    }
+                    
+                    //4.Start the task
+                    task.resume()
+                    
+                } else {
+                    print("pas succes")
+                }
             }
             
-        } catch {
-            print(error)
+            func createTask(_ downloadStationVersion: String) {
+                let synologyURL = "http://\(self.synologyIP):\(self.synologyPort)/webapi/DownloadStation/task.cgi?api=SYNO.DownloadStation.Task&version=\(downloadStationVersion)&method=create&uri=\(torrent)"
+                
+                //1.Create a URL
+                if let url = URL(string: synologyURL){
+                    
+                    //2.Create a URL session
+                    let session = URLSession(configuration: URLSessionConfiguration.default)
+                    
+                    //3.Give the session a task
+                    let task = session.dataTask(with: url) { (data, response, error) in
+                        if error != nil{
+                            logout()
+                            return
+                        }
+                        
+                        if let safeData = data {
+                            do {
+                                let decoder = JSONDecoder()
+                                let decodedData = try decoder.decode(SynologyDownloadTask.self, from: safeData)
+                                self.downloadTask = decodedData
+                                
+                                if let z = self.downloadTask {
+                                    if z.success == true {
+                                        print("task OK")
+                                    }
+                                } else {
+                                    print("Could not create task")
+                                }
+                                
+                            } catch {
+                                print(error)
+                            }
+                            logout()
+                        }
+                        
+                    }
+                    
+                    //4.Start the task
+                    task.resume()
+                    
+                }
+                
+            }
+            
+            
+            func logout() {
+                let synologyURL = "http://\(self.synologyIP):\(self.synologyPort)/webapi/auth.cgi?api=SYNO.API.Auth&version=\(authVersion)&method=logout&session=DownloadStation"
+                
+                
+                //1.Create a URL
+                if let url = URL(string: synologyURL){
+                    
+                    //2.Create a URL session
+                    let session = URLSession(configuration: URLSessionConfiguration.default)
+                    
+                    //3.Give the session a task
+                    let task = session.dataTask(with: url) { (data, response, error) in
+                        if error != nil{
+                            print("error during logout")
+                            return
+                        }
+                        
+                        if let safeData = data {
+                            do {
+                                let decoder = JSONDecoder()
+                                let decodedData = try decoder.decode(SynologyLogout.self, from: safeData)
+                                self.logoutVariable = decodedData
+                                
+                                if let z = self.logoutVariable {
+                                    if z.success == true {
+                                        print("logout OK")
+                                    }
+                                } else {
+                                    print("Could not logout")
+                                }
+                                
+                            } catch {
+                                print(error)
+                            }
+                        }
+                        
+                    }
+                    
+                    //4.Start the task
+                    task.resume()
+                    
+                }
+            }
+            
         }
     }
-    
-    
-    
 }
